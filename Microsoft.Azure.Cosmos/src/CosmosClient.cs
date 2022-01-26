@@ -1144,7 +1144,7 @@ namespace Microsoft.Azure.Cosmos
         {
             ResponseMessage response = await this.ClientContext.ProcessResourceOperationStreamAsync(
                 resourceUri: this.DatabaseRootUri,
-                resourceType: ResourceType.Database,
+                resourceType: Microsoft.Azure.Documents.ResourceType.Database,
                 operationType: OperationType.Create,
                 requestOptions: requestOptions,
                 cosmosContainerCore: null,
@@ -1166,7 +1166,7 @@ namespace Microsoft.Azure.Cosmos
         {
             return this.ClientContext.ProcessResourceOperationAsync(
                 resourceUri: this.DatabaseRootUri,
-                resourceType: ResourceType.Database,
+                resourceType: Microsoft.Azure.Documents.ResourceType.Database,
                 operationType: OperationType.Create,
                 requestOptions: requestOptions,
                 containerInternal: null,
@@ -1195,7 +1195,7 @@ namespace Microsoft.Azure.Cosmos
                     databaseStreamIterator,
                     (response) => this.ClientContext.ResponseFactory.CreateQueryFeedResponse<T>(
                         responseMessage: response,
-                        resourceType: ResourceType.Database));
+                        resourceType: Microsoft.Azure.Documents.ResourceType.Database));
         }
 
         private FeedIteratorInternal GetDatabaseQueryStreamIteratorHelper(
@@ -1206,7 +1206,7 @@ namespace Microsoft.Azure.Cosmos
             return new FeedIteratorCore(
                clientContext: this.ClientContext,
                resourceLink: this.DatabaseRootUri,
-               resourceType: ResourceType.Database,
+               resourceType: Microsoft.Azure.Documents.ResourceType.Database,
                queryDefinition: queryDefinition,
                continuationToken: continuationToken,
                options: requestOptions);
